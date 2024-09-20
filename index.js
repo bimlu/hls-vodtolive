@@ -926,6 +926,7 @@ class HLSVod {
    */
   getLiveMediaSequences(offset, bandwidth, seqIdx, discOffset, padding, forceTargetDuration) {
     const bw = this._getNearestBandwidthWithInitiatedSegments(bandwidth);
+    console.log("this.mediaSequences", this.mediaSequences)
     let targetDuration = this._determineTargetDuration(this.mediaSequences[seqIdx].segments[bw]);
     if (padding) {
       targetDuration += padding;
