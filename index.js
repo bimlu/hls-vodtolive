@@ -926,7 +926,7 @@ class HLSVod {
    */
   getLiveMediaSequences(offset, bandwidth, seqIdx, discOffset, padding, forceTargetDuration) {
     const bw = this._getNearestBandwidthWithInitiatedSegments(bandwidth);
-    console.log("this.mediaSequences", this.mediaSequences)
+    // console.log("this.mediaSequences", this.mediaSequences)
     let targetDuration = this._determineTargetDuration(this.mediaSequences[seqIdx].segments[bw]);
     if (padding) {
       targetDuration += padding;
@@ -2666,6 +2666,7 @@ class HLSVod {
                   });
                 }
                 if (this.splices[spliceIdx].segments[spliceBw]) {
+                  console.log(`Inserting ${this.splices[spliceIdx].segments[spliceBw].length} ad segments`);
                   debug(`Inserting ${this.splices[spliceIdx].segments[spliceBw].length} ad segments`);
                   this.splices[spliceIdx].segments[spliceBw].forEach((v) => {
                     let q = {
